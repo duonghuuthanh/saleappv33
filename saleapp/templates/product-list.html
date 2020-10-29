@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý sản phẩm</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">QUẢN LÝ SẢN PHẨM</h1>
+        <table class="table">
+            <tr>
+                <th></th>
+                <th>Id</th>
+                <td>Name</td>
+                <td>Price</td>
+            </tr>
+            {% for p in products %}
+            <tr>
+                <td>
+                    <img width="120" alt="{{ p.name }}" src="{{ url_for('static', filename=p.image) }}" />
+                </td>
+                <td>{{ p.id }}</td>
+                <td>{{ p.name }}</td>
+                <td>{{ "{:,.1f}".format(p.price) }} VNĐ</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
