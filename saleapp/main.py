@@ -1,5 +1,6 @@
 from flask import render_template, request
 from saleapp import app, utils
+from saleapp.admin import *
 
 
 @app.route("/")
