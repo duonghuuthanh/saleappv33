@@ -1,6 +1,7 @@
-from flask import render_template, request
-from saleapp import app, utils
+from flask import render_template, request, redirect
+from saleapp import app, utils, login
 from saleapp.admin import *
+from flask_login import login_user
 
 
 @app.route("/")
@@ -31,6 +32,25 @@ def product_detail(product_id):
 
     return render_template('product-detail.html',
                            product=product)
+
+
+@app.route('/login', methods=['post'])
+def login_usr():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password', '')
+
+        user = utils.check_login(username=username,
+                                 password=password)
+        if user:
+            login_user(user=user)
+
+    return redirect('/admin')
+
+
+@login.user_loader
+def get_user(user_id):
+    return utils.get_user_by_id(user_id=user_id)
 
 
 if __name__ == "__main__":
