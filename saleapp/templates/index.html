@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1 class="text-center">WEBSITE BÁN HÀNG TRỰC TUYẾN</h1>
-
+    <a href="{{ url_for('register') }}">Đăng ký</a>
     <ul>
         <li><a href="{{ url_for('product_list') }}"> Tất cả </a></li>
         {% for c in categories %}

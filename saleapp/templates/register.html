@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng ký</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center text-success">ĐĂNG KÝ</h1>
+        {% if err_msg %}
+        <div class="alert alert-danger">
+            {{ err_msg }}
+        </div>
+        {% endif %}
+        <form method="post" action=""
+              enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name">Họ tên</label>
+                <input type="text"
+                       name="name"
+                       id="name"
+                       required
+                       class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email"
+                       name="email"
+                       id="email"
+                       class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text"
+                       name="username"
+                       id="username"
+                       class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="name">Mật khẩu</label>
+                <input type="password"
+                       name="password"
+                       id="password"
+                       class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Xác nhận mật khẩu</label>
+                <input type="password"
+                       name="confirm-password"
+                       id="confirm-password"
+                       class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="avatar">Ảnh đại diện</label>
+                <input type="file"
+                       name="avatar"
+                       id="avatar"
+                       class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Đăng ký"
+                       class="btn btn-danger" />
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -56,7 +56,7 @@ CREATE TABLE `product` (
   PRIMARY KEY (`id`),
   KEY `catgory_id` (`catgory_id`),
   CONSTRAINT `product_ibfk_1` FOREIGN KEY (`catgory_id`) REFERENCES `category` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,6 +65,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
+INSERT INTO `product` VALUES (1,'iPhone 11','Apple',18000000,'images/iphone11.png',1),(2,'iPad Air',NULL,12000000,'images/iphone11.png',2),(3,'iPhone 12',NULL,30000000,'images/iphone11.png',1);
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -86,7 +87,7 @@ CREATE TABLE `user` (
   `user_role` enum('USER','ADMIN') COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -95,7 +96,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'OU','ou@ou.edu.vn','admin','e10adc3949ba59abbe56e057f20f883e',NULL,1,'ADMIN');
+INSERT INTO `user` VALUES (1,'OU','ou@ou.edu.vn','admin','e10adc3949ba59abbe56e057f20f883e',NULL,1,'ADMIN'),(2,'Nguyen Van A','abc@gmail.com','user1','e10adc3949ba59abbe56e057f20f883e','images/upload/avatar1.jpg',1,'USER');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -108,4 +109,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-19  8:55:02
+-- Dump completed on 2020-11-26  8:54:14
