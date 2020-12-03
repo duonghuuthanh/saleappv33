@@ -59,6 +59,7 @@ def check_login(username, password, role=UserRole.ADMIN):
 
     return user
 
+
 def get_user_by_id(user_id):
     return User.query.get(user_id)
 
@@ -77,3 +78,13 @@ def register_user(name, email, username, password, avatar):
         return True
     except:
         return False
+
+
+def cart_stats(cart):
+    total_amount, total_quantity = 0, 0
+    if cart:
+        for p in cart.values():
+            total_quantity = total_quantity + p["quantity"]
+            total_amount = total_amount + p["quantity"]*p["price"]
+
+    return total_quantity, total_amount

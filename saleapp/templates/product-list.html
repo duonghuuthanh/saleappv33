@@ -5,10 +5,14 @@
     <title>Quản lý sản phẩm</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" />
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </head>
 <body>
     <div class="container">
-        <h1 class="text-center">QUẢN LÝ SẢN PHẨM</h1>
+        <h1 class="text-center">
+            QUẢN LÝ SẢN PHẨM
+            <a class="badge badge-warning" href="#" id="cart-info"></a>
+        </h1>
         <div>
             <form>
                 <div class="form-group">
@@ -41,8 +45,9 @@
             <tr>
                 <th></th>
                 <th>Id</th>
-                <td>Name</td>
-                <td>Price</td>
+                <th>Name</th>
+                <th>Price</th>
+                <th></th>
             </tr>
             {% for p in products %}
             <tr>
@@ -54,6 +59,10 @@
                     <a href="{{ url_for('product_detail', product_id=p.id) }}">{{ p.name }}</a>
                 </td>
                 <td>{{ "{:,.1f}".format(p.price) }} VNĐ</td>
+                <td>
+                    <a href="javascript:;"
+                       onclick="addToCart({{ p.id }}, '{{ p.name }}', {{ p.price }})">Đặt hàng</a>
+                </td>
             </tr>
             {% endfor %}
         </table>
