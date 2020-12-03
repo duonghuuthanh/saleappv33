@@ -32,7 +32,7 @@ class Product(SaleBase):
     image = Column(String(100))
     catgory_id = Column(Integer, ForeignKey(Category.id),
                         nullable=False)
-    receipt_details = relationship('Product', backref='product', lazy=True)
+    receipt_details = relationship('ReceiptDetail', backref='product', lazy=True)
 
 
 class UserRole(UserEnum):
